@@ -1,10 +1,4 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  OneToOne,
-  Index,
-} from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne } from 'typeorm';
 
 @Entity()
 export class User {
@@ -50,11 +44,9 @@ export class BorrowingRecord {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Index({ unique: true })
   @OneToOne(() => User, (user) => user.id)
   user_id: string;
 
-  @Index({ unique: true })
   @OneToOne(() => Book, (book) => book.id)
   book_id: string;
 
